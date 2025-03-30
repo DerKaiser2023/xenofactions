@@ -1,14 +1,14 @@
 [
   {
     "modid": "hfr",
-    "name": "XenoFactions",
-    "description": "xradar skibidi toilet edition",
+    "name": "XenoFactions caged jimmy edition",
+    "description": "xradar caged jimmy edition",
     "version": "${version}",
     "mcversion": "${mcversion}",
     "url": "discord.gg/EfrnP8WJtj",
     "updateUrl": "",
-    "authorList": ["Ragex", "TheBobcat"],
-    "credits": "CrusaderFire for testing this hot garbage and Ragex for actually debugging it",
+    "authorList": ["Ragex", "TheBobcat", "DerKaiser2023"],
+    "credits": "CrusaderFire for testing this hot garbage and Ragex for actually debugging it and DerKaiser2023 for unleashing jimmy on this shit",
     "logoFile": "assets/hfr/textures/logo.png",
     "screenshots": [],
     "dependencies": []
