@@ -357,3 +357,6 @@ item.canned_spam.name=Canned Coochie
 
 item.debug.name=Metal Junk of Debugging
 item.capsule.name=Explosive Capsule
+
+achievement.craftBlastFurnace=Industrial Revolution
+achievement.craftBlastFurnace.desc=Craft a Blast Furnace!

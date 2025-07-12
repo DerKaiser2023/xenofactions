@@ -216,8 +216,6 @@ public class MainRegistry
 
 	public static boolean bb_rng = false;
 	
-	public static boolean chatfilter = true;
-	
 	public static boolean freeRadar = false;
 	public static boolean sound = true;
 	public static boolean comparator = false;
@@ -367,91 +365,9 @@ public class MainRegistry
 		HFRPotion.init();
 		MainRegistry.loadCustomDrops();
 
-		sub.put(regexify("sex mod"), "funnies");
-		sub.put(regexify("fuck"), "frick");
-		sub.put(regexify("nigga"), "african american");
-		sub.put(regexify("nigger"), "african american");
-		sub.put(regexify("faggot"), "homosexual");
-		sub.put(regexify("gay"), "homosexual");
-		sub.put(regexify("fag"), "cigarette");
-		sub.put(regexify("cunt"), "immanuel kant");
-		sub.put(regexify("penis"), "pee pee");
-		sub.put(regexify("cock"), "rooster");
-		sub.put(regexify("dick"), "richard nixon");
-		sub.put(regexify("shit"), "crap");
-		sub.put(regexify("bitch"), "dog");
-		sub.put(regexify("pussy"), "kitten");
-		sub.put(regexify("bastard"), "illegitimate child");
-		sub.put(regexify("goddamn"), "goshdarn");
-		sub.put(regexify("damn"), "darn");
-		sub.put(regexify("asshole"), "poohole");
-		sub.put(regexify("jew"), "יהודי");
-		sub.put(regexify("kike"), "יהודי");
-		sub.put(regexify("kys"), "stop");
-		sub.put(regexify("kill yourself"), "reconsider your life choices");
-		sub.put(regexify("chink"), "eastern asian fellow");
-		sub.put(regexify(" ass "), " butté ");
-		sub.put(regexify("cracker"), "caucasian");
-		sub.put(regexify("gook"), "vietnamese");
-		sub.put(regexify("cuck"), "lad");
-		sub.put(regexify("negro"), "melanine man");
-		sub.put(regexify("negroid"), "african-like");
-		sub.put(regexify("groid"), "OWO :3 haiiiii you like boys don't you :3");
-		//sub.put(regexify("coon"), "overweight");
-		//weirdly just decides to like replace unrelated shit
-		sub.put(regexify("penis"), "junk");
-		//sub.put(regexify("twat"), "天安门广场大屠杀");
-		//sub.put(regexify("idiot"), "傻子");
-		sub.put(regexify("whore"), "hussy");
-		sub.put(regexify("pornography"), "naughty pics");
-		sub.put(regexify("porn"), "cartoons");
-		sub.put(regexify("hentai"), "naughty cartoons");
-		sub.put(regexify("porch monkey"), "owo im a furry uwu");
-		sub.put(regexify("woke"), "furry");
-		sub.put(regexify("moon cricket"), "I own a fursuit");
-		sub.put(regexify("50% 13%"), "*wags tail cutely OWO :3");
-		sub.put(regexify("melon muncher"), "uwu x3");
-		sub.put(regexify("sigma"), "fur suiter");
-		sub.put(regexify("ragex chan"), "I'm a furry uwu");
-		sub.put(regexify("gator bait"), "my fursona is an alligator :3");
-		sub.put(regexify("be my girlfriend"), "I'm a lonely middle aged man");
-		sub.put(regexify("rape"), "haiiii :3");
-		sub.put(regexify("soylent"), "chad sauce");
-		sub.put(regexify("xenobyte"), "I'm a furry uwu");
-		sub.put(regexify("xradar"), "xenofactions");
-		sub.put(regexify("blackie"), "YES KING");
-		sub.put(regexify("cotton picker"), "I'm from rust");
-		sub.put(regexify("jiggabo"), "OWO maxxing rn");
-		sub.put(regexify("ragex chan"), "I'm a furry uwu");
-		sub.put(regexify("crow"), "I probably said something not nice >< uwu x3");
-		sub.put(regexify("jungle bunny"), "I like bunny girls x3 rawr");
-		sub.put(regexify("kaffir"), "I dont like yuuus x3");
-		sub.put(regexify("mayonnaise monkey"), "I'm a furry x3");
-		sub.put(regexify("mayo monkey"), "I wear thigh highs to bed :33");
-		sub.put(regexify("niglet"), "UwU x3 haiiiiii");
-		sub.put(regexify("nog"), "I'm a furry x333");
-		sub.put(regexify("shitskin"), "What in the whiskers?! :3");
-		sub.put(regexify("spade"), "What the actual fur?! OWO :3");
-		sub.put(regexify("spook"), "OmO Pawsitively ridiculous! :3");
-		sub.put(regexify("tar baby"), "Fuzz nuggets! :33");
-		sub.put(regexify("my bad gang"), "Fluff me sideways!");
-		sub.put(regexify("mb gng"), "Fluff me sideways!");
-		sub.put(regexify("uncle tom"), "lawyer :3");
-		sub.put(regexify("wigger"), "Paw-sitively shocking! OwO");
-		sub.put(regexify("white trash"), "UwU have u heard of the boykisser meme x3");
-		sub.put(regexify("pajeet"), "Fwend :33");
-		sub.put(regexify("gang gang"), "guys how do I clean my fursuits ><");
-		sub.put(regexify("raghead"), "Yiff maxxing rn x3 UwU");
-		sub.put(regexify("buck"), "you like boyys dont you x333");
-		sub.put(regexify("cracka"), "Fur-tastic! :3");
-		sub.put(regexify("tren"), "turkesteron and go2 max");
-		sub.put(regexify("`1989`"), "please respect our chinese partners uwu");
-		sub.put(regexify("tiannamen square massacre"), "never happened");
-		sub.put(regexify("mao"), "mandela");
-		sub.put(regexify("hotdog"), "please respect our north korean partners");
-		sub.put(regexify("janny"), "terrorist");
-		sub.put(regexify("jannie"), "terrorist");
-		sub.put(regexify("janitors"), "terrorist");
+		// Register achievements and crafting event handler
+		ModAchivements.init();
+		MinecraftForge.EVENT_BUS.regsister(new AchievementEvents());
 		
 		NetworkRegistry.INSTANCE.registerGuiHandler(instance, new GUIHandler());
 		
@@ -568,46 +484,6 @@ public class MainRegistry
 		//GameRegistry.registerWorldGenerator(worldGenMoon, 0);
 		//DimensionManager.registerProviderType(15, WorldProviderMoon.class, false);
 	    //DimensionManager.registerDimension(15, 15);
-	}
-	
-	private String regexify(String string) {
-		
-		String neue = "(?i)";
-		boolean first = true;
-		
-		for(char c : string.toCharArray()) {
-			
-			if(!first)
-				neue += "[ \\.\\-_@$!#:;&\\(\\)\\-¶,\\.\\?+×÷=%/*€£￦¥¿¡^\\[\\]<>~`§μ¬Г´·\\{\\}©|¤Ωθฯ]{0,3}";
-			
-			first = false;
-			
-			if(c == 'a') {
-				neue += "[aäáàâåǎ]";
-			} else if(c == 'c') {
-				neue += "[cĉčćç]";
-			} else if(c == 'e') {
-				neue += "[eëéèêě]";
-			} else if(c == 'i') {
-				neue += "[iịǐíìîï]";
-			} else if(c == 'j') {
-				neue += "[jĵǰ]";
-			} else if(c == 'm') {
-				neue += "[mṃ]";
-			} else if(c == 'n') {
-				neue += "[nňṇńņ]";
-			} else if(c == 'o') {
-				neue += "[oöóòôǒọ]";
-			} else if(c == 's') {
-				neue += "[sŝšṣśşŝ]";
-			} else if(c == 'u') {
-				neue += "[uüúùûůǔụ]";
-			} else {
-				neue += c;
-			}
-		}
-		
-		return neue;
 	}
 
 	@EventHandler
@@ -1326,12 +1202,6 @@ public class MainRegistry
         freeRaid = createConfigBool(config, "CLOWDER", "freeRaid", "Enabling this will cause all raidability checks to be ignored, everyone will alway be raidable", false);
 
         bb_rng = createConfigBool(config, "BOBBYBREAKER", "enableFineCalc", "Whether or not BB uses exact position values or rounded ones, exact values simulate RNG due to bomb spread and highly varying damage", false);
-
-        Property prop_chatfilter = config.get("CHATFILTER", "enableChatFilter", true);
-        prop_chatfilter.comment = "Enables the swear filter for chat";
-        prop_chatfilter.setRequiresMcRestart(false);
-        prop_chatfilter.setRequiresWorldRestart(false);
-        chatfilter = prop_chatfilter.getBoolean(true);
         
         u2en = createConfigBool(config, "STOCKMARKET", "u2enable", "Whether econ boost messages should be broadcasted", true);
         u1en = createConfigBool(config, "STOCKMARKET", "u1enable", "Whether small econ boost messages should be broadcasted", true);
